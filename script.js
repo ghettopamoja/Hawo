@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
         showLyricsDiv(true);
         audio.play();
         showLyrics();
+        playBtn.innerHTML = "&#10074;&#10074;";
         isPlaying = true;
     }
 
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     audio.onended = () => {
         playBtn.innerHTML = "&#9654;"; // Play symbol
-        isPlaying = false;
+        
         const bubble = outLayer.querySelector('.bubble');
     
         if (bubble) {
@@ -94,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
         currentLyricsIndex = 0;
 
         showLyricsDiv(false);
+        isPlaying = false;
     }
     
 
