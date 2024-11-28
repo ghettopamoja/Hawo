@@ -1,0 +1,279 @@
+* / {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background:linear-gradient(135deg, blueviolet, rgba(3, 179, 188, 0.822));
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(135deg, blueviolet, rgba(3, 179, 188, 0.822));
+}
+
+.outer-layer{
+    width: 40%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+.lyrics-div{
+    background-image: url('img1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80%;
+    height: 80vh;
+    display: none;
+    border-radius: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    padding: 10px;
+}
+.lyrics-div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.lyrics-div > * {
+    z-index: 2;
+}
+
+.welcome-div{
+    background-image: url('img2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.welcome-div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.welcome-div > * {
+    z-index: 2;
+}
+.welcome-div .hello{
+    color: #f9f9f9;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #f9f9f9;
+    color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.start-button:hover{
+    background-color: rgba(137, 43, 226, 0.495);
+}
+
+.bubble {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) perspective(500px) rotate3d(1, 1, 0, 45deg);
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, rgba(46,244,205,0) 30%,rgba(198,171,203,0) 60%,rgba(246,148,203,1) 100%), radial-gradient(ellipse at center, rgba(76,110,207,0) 27%,rgba(76,110,207,0.33) 51%,rgba(89,88,179,0.58) 69%,rgba(89,78,183,1) 100%), linear-gradient(80deg, rgba(246,148,203,0) 0%,rgba(70,232,205,.1) 70%,rgba(46,244,205,1) 100%), linear-gradient(45deg, rgba(46,244,205,1) 0%,rgba(76,110,207,0.2) 50%,rgba(76,110,207,0) 60%);
+    border-radius: 50%;
+    box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1), 0 0 40px rgba(0, 0, 0, 0.4); /* Add extra shadow for depth */
+    animation: 10s warp infinite, fadeup 5s ease 0s 1 normal forwards;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    
+}
+
+.bubble::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 10%;
+    height: 10%;
+    background: rgba(255, 255, 255, 0.9); /* Light shine effect */
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Glowing effect */
+    animation: shine 3s infinite;
+    pointer-events: none; /* Prevents the shine from interfering with interactions */
+    z-index: 3;
+
+}
+
+.bubble p {
+    color: #f9f9f9;
+    font-size: 30px;
+    text-align: center;
+}
+
+.progress-truck{
+    width: 80%;
+    height: 6px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 30px 0 0 30px ;
+}
+
+.progress-truck .progress-bar{
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, blueviolet, rgb(7, 235, 91));
+    border-radius: 10px;
+}
+
+  
+@keyframes warp {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    25% {
+      transform: translate(-50%, -50%) rotate(15deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    75% {
+      transform: translate(-50%, -50%) rotate(15deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+
+  @keyframes fadeup {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Shine animation */
+@keyframes shine {
+    0% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, -150px);
+    }
+}
+@media (max-width: 800px) {
+   
+    .container {
+        flex-direction: column;
+        height: 100vh; /* Allow content to determine height */
+        padding: 10px; /* Add some padding */
+    }
+
+    .outer-layer {
+        width: 80%;
+        height: 80%; /* Adjust to content */
+        margin: 20px 0; /* Add margin for spacing */
+       /* background-color: orange; */
+        
+    }
+
+    .lyrics-div,
+    .welcome-div {
+        width: 100%;
+        height: 60vh; /* Adjust height for smaller screens */
+        background-size: cover;
+        
+    }
+
+    .start-button {
+        width: 40px; /* Smaller button */
+        height: 40px;
+    }
+
+    .bubble {
+        width: 100px; /* Smaller bubbles */
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .bubble p {
+        font-size: 14px; /* Smaller font size for text in bubbles */
+    }
+
+    .progress-truck {
+        width: 80%; /* Make the progress truck more responsive */
+        margin: 20px auto; /* Center align */
+    }
+
+    .progress-truck .progress-bar {
+        width: 60%; /* Adjust width for smaller screens */
+    }
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
